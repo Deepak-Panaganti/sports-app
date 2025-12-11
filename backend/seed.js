@@ -1,57 +1,3 @@
-const mongoose = require("mongoose");
-require("dotenv").config();
-
-const Court = require("./models/Court");
-const Equipment = require("./models/Equipment");
-const Coach = require("./models/Coach");
-const PricingRule = require("./models/PricingRule");
-
-async function seed() {
-  await mongoose.connect(process.env.MONGO_URI);
-
-  await Court.deleteMany();
-  await Equipment.deleteMany();
-  await Coach.deleteMany();
-  await PricingRule.deleteMany();
-
-  await Court.insertMany([
-    { name: "Court 1", type: "indoor", basePrice: 10 },
-    { name: "Court 2", type: "indoor", basePrice: 10 },
-    { name: "Court 3", type: "outdoor", basePrice: 8 },
-    { name: "Court 4", type: "outdoor", basePrice: 8 }
-  ]);
-
-  await Equipment.insertMany([
-    { name: "Racket", totalStock: 10, rentalPrice: 5 },
-    { name: "Shoes", totalStock: 20, rentalPrice: 3 }
-  ]);
-
-  await Coach.insertMany([
-    { name: "Coach A", hourlyFee: 20 },
-    { name: "Coach B", hourlyFee: 25 },
-    { name: "Coach C", hourlyFee: 30 }
-  ]);
-
-  await PricingRule.insertMany([
-    { name: "Peak Hours", condition: "peak", type: "multiplier", value: 1.5, metadata: { start: 18, end: 21 } },
-    { name: "Weekend", condition: "weekend", type: "fixed", value: 2 },
-    { name: "Indoor Premium", condition: "indoor", type: "multiplier", value: 1.2 }
-  ]);
-
-  console.log("Seed Completed");
-  process.exit(0);
-}
-
-seed().catch(err => {
-  console.error(err);
-  process.exit(1);
-});
-
-
-
-
-
-
 // backend/seed.js
 require("dotenv").config();
 const connectDB = require("./config/db");
@@ -124,13 +70,11 @@ async function seed() {
   console.log("Demo User ID:", user._id.toString());
   console.log("------------------------------------");
 
-  // Return seeded data (for /__seed route)
   return { courts, equipment, coaches, rules, user };
 }
 
 module.exports = seed;
 
-// If run via CLI → exit gracefully
 if (require.main === module) {
   seed()
     .then(() => {

@@ -112,69 +112,63 @@ The system also supports **admin-level configurations** such as pricing rules, c
 # ✅ **3. MongoDB Database**
 
 ## ENTITY–RELATIONSHIP DIAGRAM (ERD)**
-
 ┌───────────────┐
-│ courts │
+│    courts     │
 ├───────────────┤
-│ id (PK) │
-│ name │
-│ type │ (indoor/outdoor)
-│ basePrice │
-│ enabled │
+│ id (PK)       │
+│ name          │
+│ type          │  ← indoor / outdoor
+│ basePrice     │
+│ enabled       │
 └─────┬─────────┘
-│
-│ 1-to-many bookings
-▼
+      │ 1-to-many
+      ▼
 ┌───────────────┐
-│ bookings │
+│   bookings    │
 ├───────────────┤
-│ id (PK) │
+│ id (PK)       │
 │ court_id (FK) │ → courts.id
 │ coach_id (FK) │ → coaches.id
-│ equipment[] │ → equipment.id
-│ start_time │
-│ end_time │
-│ totalPrice │
+│ equipment[]   │ → equipment.id (array)
+│ start_time    │
+│ end_time      │
+│ totalPrice    │
 └───────────────┘
 
 ───────────────────────────────
-
 ┌───────────────┐
-│ coaches │
+│   coaches     │
 ├───────────────┤
-│ id (PK) │
-│ name │
-│ hourlyFee │
+│ id (PK)       │
+│ name          │
+│ hourlyFee     │
 └───────────────┘
 
-───────────────────────────────
 
+───────────────────────────────
 ┌───────────────┐
-│ equipment │
+│  equipment    │
 ├───────────────┤
-│ id (PK) │
-│ name │
-│ rentalPrice │
-│ totalStock │
+│ id (PK)       │
+│ name          │
+│ rentalPrice   │
+│ totalStock    │
 └───────────────┘
 
-───────────────────────────────
 
+───────────────────────────────
 ┌─────────────────────┐
-│ pricing_rules │
+│   pricing_rules     │
 ├─────────────────────┤
-│ id (PK) │
-│ name │
-│ condition │ (peak/weekend/indoor)
-│ type │ (multiplier/fixed)
-│ value │
-│ enabled │
+│ id (PK)             │
+│ name                │
+│ condition           │ ← peak / weekend / indoor
+│ type                │ ← multiplier / fixed
+│ value               │
+│ enabled             │
 └─────────────────────┘
-
-yaml
-Copy code
-
 <br>
+---
 
 ## ✔ **Sample Data Included**
 - Courts (Indoor + Outdoor)  
@@ -196,90 +190,88 @@ Copy code
 cd backend
 npm install
 npm start
+```
 Backend runs at:
 👉 http://localhost:5000
 
 <br>
-🌱 Seed Database
-bash
-Copy code
+
+## 🌱 Seed Database
+```bash
 node seed.js
+```
+
 This inserts:
-
-Courts
-
-Equipment
-
-Coaches
-
-Pricing rules
-
-Demo user
+- Courts
+- Equipment
+- Coaches
+- Pricing rules
+- Demo user
 
 <br>
-🧩 Environment Variables
+---
+
+## 🧩 Environment Variables
 Create a .env inside backend:
 
-bash
+```bash
 Copy code
 PORT=5000
 MONGO_URI=your_mongo_connection_string
+```
 <br>
-💻 Frontend Setup
-bash
-Copy code
+---
+
+## 💻 Frontend Setup
+```bash
 cd frontend
 npm install
 npm start
+```
 Frontend runs at:
 👉 http://localhost:3000
 
 <br>
-🌟 Feature Summary
-🏸 Courts & Scheduling
-Indoor / Outdoor courts
+---
 
-Availability by hour
+## 🌟 Feature Summary
 
-Dynamic slot selection
+- 🏸 Courts & Scheduling
+- Indoor / Outdoor courts
+- Availability by hour
+- Dynamic slot selection
 
-🎒 Equipment Rental
-Limited inventory
+ 🎒 Equipment Rental
+- Limited inventory
+- Auto-blocked when unavailable
 
-Auto-blocked when unavailable
-
-🧑‍🏫 Coach Booking
-Hourly rates
-
-Availability logic
+ 🧑‍🏫 Coach Booking
+- Hourly rates
 
 💸 Dynamic Pricing
-Peak hour multiplier
-
-Weekend surcharge
-
-Indoor premium
-
-Stackable pricing rules
+- Peak hour multiplier
+- Weekend surcharge
+- Indoor premium
+- Stackable pricing rules
 
 <br>
-🏁 Conclusion
+---
+
+## 🏁 Conclusion
 This Sports Facility Booking System demonstrates:
 
-Full-stack system implementation
-
-Dynamic booking algorithm
-
-Extendable pricing engine
-
-Modern UI/UX using TailwindCSS
-
-Clean separation of backend modules
-
-Real-time slot selection experience
+- Full-stack system implementation
+- Dynamic booking algorithm
+- Extendable pricing engine
+- Modern UI/UX using TailwindCSS
+- Clean separation of backend modules
+- Real-time slot selection experience
 
 <br>
-🙏 Thank You
+---
+
+
+## 🙏 Thank You
 Sports Facility Booking System 
 
 Developed by Deepak Panaganti
