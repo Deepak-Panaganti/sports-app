@@ -112,6 +112,7 @@ The system also supports **admin-level configurations** such as pricing rules, c
 # ✅ **3. MongoDB Database**
 
 ## ENTITY–RELATIONSHIP DIAGRAM (ERD)**
+```
 ┌───────────────┐
 │    courts     │
 ├───────────────┤
@@ -167,7 +168,9 @@ The system also supports **admin-level configurations** such as pricing rules, c
 │ value               │
 │ enabled             │
 └─────────────────────┘
+```
 <br>
+
 ---
 
 ## ✔ **Sample Data Included**
@@ -270,6 +273,7 @@ This Sports Facility Booking System demonstrates:
 - Real-time slot selection experience
 
 <br>
+
 ---
 
 
