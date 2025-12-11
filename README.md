@@ -209,7 +209,7 @@ This inserts:
 - Demo user
 
 <br>
----
+
 
 ## 🧩 Environment Variables
 Create a .env inside backend:
@@ -220,7 +220,7 @@ PORT=5000
 MONGO_URI=your_mongo_connection_string
 ```
 <br>
----
+
 
 ## 💻 Frontend Setup
 ```bash
@@ -232,6 +232,7 @@ Frontend runs at:
 👉 http://localhost:3000
 
 <br>
+
 ---
 
 ## 🌟 Feature Summary
@@ -255,6 +256,7 @@ Frontend runs at:
 - Stackable pricing rules
 
 <br>
+
 ---
 
 ## 🏁 Conclusion
