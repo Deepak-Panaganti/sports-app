@@ -1,0 +1,159 @@
+
+/* --------------------------------------------------
+   GOOGLE FONT
+-------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ======================================================
+   THEME VARIABLES (Dark + Light Mode)
+====================================================== */
+
+/* 🌙 DARK MODE (Default) */
+:root {
+  --bg:  #242232;     
+  --card: rgba(255,255,255,0.06);
+  --glass: rgba(255,255,255,0.03);
+
+  --accent: #3b82f6;
+  --accent-2: #2563eb;
+
+  --text: #ffffff;
+  --text-muted: #c7c7c7;
+
+  --shadow-strong: 0 10px 30px rgba(0,0,0,0.45);
+  --shadow-soft: 0 6px 20px rgba(0,0,0,0.25);
+
+  --slot-green: #3fcd8f;
+  --slot-green-text: #0a3824;
+
+  --slot-red: #d66a6a;
+  --slot-red-text: #3a0a0a;
+
+  --slot-blue: #4a78ff;
+  --slot-blue-text: #ffffff;
+}
+
+/* ☀️ LIGHT MODE */
+[data-theme="light"] {
+  --bg: #5d6570;
+  --card: rgb(209, 218, 235);
+  --glass: rgba(255,255,255,0.9);
+
+  --accent: #2563eb;
+  --accent-2: #1d4ed8;
+
+  --text: #111827;
+  --text-muted: #6b7280;
+
+  --shadow-strong: 0 10px 30px rgba(0,0,0,0.10);
+  --shadow-soft: 0 6px 20px rgba(0,0,0,0.08);
+
+  --slot-green: #34d399;
+  --slot-green-text: #064e3b;
+
+  --slot-red: #f87171;
+  --slot-red-text: #7f1d1d;
+
+  --slot-blue: #3b82f6;
+  --slot-blue-text: #ffffff;
+}
+
+/* Smooth transition between themes */
+html, body {
+  transition: background 0.35s ease, color 0.35s ease;
+}
+
+/* --------------------------------------------------
+   GLOBAL PAGE STYLE
+-------------------------------------------------- */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--bg) !important;
+  color: var(--text);
+  font-family: "Poppins", sans-serif;
+}
+
+/* --------------------------------------------------
+   CUSTOM UI COMPONENTS
+-------------------------------------------------- */
+@layer components {
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    backdrop-filter: blur(14px);
+    @apply rounded-2xl shadow-xl p-6 border border-white/10;
+  }
+
+  /* Inner panels */
+  .panel-inner {
+    background: var(--glass);
+    backdrop-filter: blur(18px);
+    @apply rounded-xl p-4 border border-white/10;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: white;
+    @apply w-full py-2 px-4 rounded-xl font-semibold shadow-lg transition;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(59,130,246,0.35);
+  }
+
+  /* Base slot style */
+  .slot-btn {
+    @apply py-2 px-4 rounded-lg text-sm font-semibold transition-all cursor-pointer;
+  }
+
+  /* Available */
+  .slot-available {
+    background: var(--slot-green) !important;
+    color: var(--slot-green-text) !important;
+  }
+
+  /* Booked (disabled) */
+  .slot-booked {
+    background: var(--slot-red) !important;
+    color: var(--slot-red-text) !important;
+    opacity: 0.7;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+  }
+
+  /* Selected */
+  .slot-selected {
+    background: var(--slot-blue) !important;
+    color: var(--slot-blue-text) !important;
+    box-shadow: 0 6px 16px rgba(74,120,255,0.35);
+  }
+}
+/* Make App container transparent so the global grey background is visible */
+.App {
+  width: 100%;
+  min-height: 100vh;
+  background: transparent !important;
+}
+
+/* Remove Create-React-App default header styling */
+.App-header {
+  background: transparent !important;
+  min-height: auto;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+
+
+
+

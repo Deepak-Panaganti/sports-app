@@ -1,0 +1,18 @@
+/* Make App container transparent so the global grey background is visible */
+.App {
+  width: 100%;
+  min-height: 100vh;
+  background: transparent !important;
+}
+
+/* Remove Create-React-App default header styling */
+.App-header {
+  background: transparent !important;
+  min-height: auto;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+/* Disable CRA logo animation (not used) */
+@keyframes App-logo-spin {}

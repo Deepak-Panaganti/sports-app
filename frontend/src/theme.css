@@ -1,0 +1,179 @@
+/* --------------------------------------------------
+   Modern Grey-Glass Theme (Professional UI)
+-------------------------------------------------- */
+
+/* Root color variables */
+:root {
+  --bg: #242232;                /* main dark grey */
+  --card: rgba(126, 62, 62, 0.05);
+  --glass: rgba(131, 21, 21, 0.03);
+
+  --accent: #3b82f6;            /* blue primary */
+  --accent-2: #2563eb;          /* blue darker */
+
+  --text: #ffffff;
+  --text-muted: #c7c7c7;
+
+  --shadow-strong: 0 10px 30px rgba(0,0,0,0.45);
+  --shadow-soft: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* --------------------------------------------------
+   GLOBAL PAGE BACKGROUND (FULL DARK GREY)
+-------------------------------------------------- */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  background: var(--bg) !important;
+  color: var(--text);
+
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --------------------------------------------------
+   MAIN CONTAINER SHELL
+-------------------------------------------------- */
+.app-shell {
+  max-width: 980px;
+  margin: 28px auto;
+  padding: 26px;
+
+  border-radius: 14px;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: var(--shadow-strong);
+}
+
+/* --------------------------------------------------
+   HEADER
+-------------------------------------------------- */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.app-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* --------------------------------------------------
+   PANELS (Cards)
+-------------------------------------------------- */
+.panel {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 18px;
+
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: var(--shadow-soft);
+}
+
+/* smaller inner panel */
+.panel-inner {
+  background: rgba(255,255,255,0.04);
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* --------------------------------------------------
+   BUTTONS
+-------------------------------------------------- */
+.btn-primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: white;
+
+  padding: 10px 16px;
+  border: none;
+  border-radius: 10px;
+
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 0 18px rgba(59,130,246,0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(59,130,246,0.35);
+}
+
+/* --------------------------------------------------
+   SLOT BUTTONS (Green, Red, Blue)
+-------------------------------------------------- */
+.slot-available {
+  background: #3fcd8f !important;
+  color: #073c24 !important;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.slot-booked {
+  background: #d66a6a !important;
+  color: #3a0a0a !important;
+  border-radius: 8px;
+  opacity: 0.95;
+  font-weight: 600;
+}
+
+.slot-selected {
+  background: #4a78ff !important;
+  color: #ffffff !important;
+  border-radius: 8px;
+  font-weight: 700;
+  box-shadow: 0 6px 16px rgba(74,120,255,0.35);
+}
+
+/* Base slot button styling */
+.slot-btn {
+  padding: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+
+  transition: 0.25s ease;
+  font-size: 14px;
+}
+
+/* --------------------------------------------------
+   LEGENDS
+-------------------------------------------------- */
+.legend {
+  font-size: 13px;
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.legend .dot {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  border-radius: 4px;
+  margin-right: 4px;
+}
+
+/* --------------------------------------------------
+   RESPONSIVE TWEAKS
+-------------------------------------------------- */
+@media (max-width: 760px) {
+  .app-shell {
+    margin: 12px;
+    padding: 18px;
+  }
+
+  .app-title {
+    font-size: 22px;
+  }
+}
